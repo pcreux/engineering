@@ -1,3 +1,7 @@
+# Brewhouse Engineering Principles and Practices
+
+# Table of Contents
+
 # Brewhouse Engineering Principles
 
 ## We write code for our peers
@@ -87,11 +91,11 @@ We use Cloudflare to get DNS + CDN + free SSL cert.
 
 We setup pg:backups `heroku pg:backups schedule --at '04:00 UTC'`
 
-## Ruby & Rails
+## Ruby on Rails
 
 We bootstrap apps using our rails template: [brewhouse-rails-template](https://github.com/BrewhouseTeam/brewhouse-rails-template).
 
-## Services
+### Services
 
 See [Gourmet Service Objects](http://brewhouse.io/blog/2014/04/30/gourmet-service-objects.html) for an introduction.
 
@@ -131,7 +135,7 @@ class Post < ActiveRecord::Base
 end
 ```
 
-## Controllers
+### Controllers
 
 Controller actions are responsible for:
 
@@ -150,7 +154,7 @@ We use [Pundit](https://github.com/elabs/pundit) when fine-grained authorization
 
 We create a `LoggedInController` that ensures that a user is authenticated. Most controllers inherit from `LoggedInController`.
 
-## Models
+### Models
 
 Models are responsible for associations, scopes, validations and data consistency.
 
@@ -182,7 +186,7 @@ Callbacks can only be used to ensure data integrity (i.e. keeping a `comments_co
 
 Encrypt api and oauth tokens using [attr_encrypted](https://github.com/attr-encrypted/attr_encrypted).
 
-## Views
+### Views
 
 Use erb because our designers are not big fan of slim / haml. :)
 
@@ -196,7 +200,7 @@ Use Page Objects when views become a bit complex. Page Objects methods tell the 
 @page.display_progress_bar?
 ```
 
-## Confident Ruby - Robust code
+### Confident Ruby - Robust code
 
 In order to be confident that the app works, makes things easy to debug, and ensures data integrity:
 
@@ -214,24 +218,26 @@ Inconsistent data (missing fields, duplicate records) leads to bugs that are har
 
 Also see this article: [Five practices for Robust Ruby on Rails applications](http://brewhouse.io/2016/02/26/five-practices-for-robust-ruby-on-rails-applications.html)
 
-## RSpec
+### RSpec
 
 With RSpec, we mostly test models, services and api interaction. Cucumber scenarios are likely to cover the thin controller layer. Once in a while, you might need to test a complex controller, go for it!
 
 We use FactoryGirl to create models without trying to go too far with it. Each factory should be valid on its own. If you need some crazy custom setup, call Services from your specs to create stuff.
 
 Use `describe` blocks to describe the class, method or behaviour. Ex:
-```
+
+```ruby
 describe Subscriber::Add
 describe "#disable!”
 describe "sending via MailChimp"
 describe ".active"
 ```
 
-Instance methods are prefixed with a `#`, class methods are prefixed with a `.` (`#disable!` but `.active1)
+Instance methods are prefixed with a `#`, class methods are prefixed with a `.` (`#disable!` but `.active1`)
 
 `context` should start with the keyword "when". Ex:
-```
+
+```ruby
 context "when email is invalid"
 context "when CSV has no content"
 ```
@@ -242,15 +248,13 @@ Write accurate tests to prevent false positives:
 
 ```ruby
 # Bad
-
 expect(campaign.active.count).to eq 2
 
 # Good
-
 expect(campaign.active).to match_array(active_campaign_1, active_campaign_2)
 ```
 
-## Cucumber
+### Cucumber
 
 Cucumber scenarios should be high level, and contain a few (5-8) steps. They describe a workflow, not UI interactions. Doing so, we spend more time in step definitions (read capybara & ruby) than step definition and cucumber pattern matching hell.
 
@@ -270,7 +274,7 @@ Given steps should rely on factories and services to set up a context. Going thr
 
 By order of preference (because of speed), use `capybara-rack`, or `capybara-webkit`... `capybara-selenium` is slow!
 
-## Rake tasks
+### Rake tasks
 
 We use rake tasks to trigger recurring jobs.
 
@@ -281,17 +285,17 @@ We setup Heroku Scheduler to call the `app:cron:...` tasks.
 
 In order to prevent a failing task to run subsequent ones, each rake task should queue up a job that Sidekiq will happily take care of.
 
-## APIs
+### APIs
 
 We have a good experience with [jsonapi-resources](https://github.com/cerebris/jsonapi-resources). It provides a good framework to build a consistent api. Pair it with rspec-api-documentation and apitome and you’ve got a pretty good setup that makes your mobile friends happy. :)
 
 Authentication has been done so far using Basic Auth (“Authentication” header with login:password base64 encoded).
 
-## Charts
+### Charts
 
 [Chartkick](http://chartkick.com/) + [Chart.js](http://www.chartjs.org/) is a pretty good combo to keep things simple and tidy.
 
-## Rails and JS
+### Rails and JS
 
 JQuery sprinkles and Rails Remote Javascript, when done well, are pretty good.
 
