@@ -1,6 +1,35 @@
 # Brewhouse Engineering Principles and Practices
 
+
 # Table of Contents
+
+1. [Brewhouse Engineering Principles](#brewhouse-engineering-principles)
+   * [We write code for our peers](#we-write-code-for-our-peers)
+   * [We trust our peers](#we-trust-our-peers)
+   * [We experiment (bleeding edge)](#we-experiment-bleeding-edge)
+   * [We ship good, old, stable](#we-ship-good-old-stable)
+   * [We collaborate](#we-collaborate)
+   * [We reflect](#we-reflect)
+   * [We contribute](#we-contribute)
+2. [Brewhouse Engineering Practices](#brewhouse-engineering-practices)
+   * [Git](#git)
+   * [Code](#code)
+   * [Pull Requests](#pull-requests)
+   * [CI](#ci)
+   * [Deployment](#deployment)
+   * [Ruby on Rails](#ruby-on-rails)
+     * [Services](#services)
+     * [Controllers](#controllers)
+     * [Models](#models)
+     * [Views](#views)
+     * [Confident Ruby - Robust code](#confident-ruby-robust-code)
+     * [Data integrity](#data-integrity)
+     * [RSpec](#rspec)
+     * [Cucumber](#cucumber)
+     * [Rake tasks](#rake-tasks)
+     * [APIs](#apis)
+     * [Charts](#charts)
+     * [Rails and JS](#rails-and-js)
 
 # Brewhouse Engineering Principles
 
