@@ -69,12 +69,37 @@ We acknowledge that we sit on shoulders of giants. We give back by contributing 
 
 ## Git
 
+### Commit messages
+
+The goal of a commit message is to help future developers to find out why a particular change was made to the code.
 We write commit messages that explain **Why** we made a change. We can look at the diff to know **What** the change is about.
 
 * Not good: "Made the project container an inline-block"
-* Good: "Fix alignment of project cards"
+* Good: "Fix project cards layout"
 
-We rebase remote changes to prevent local merges from polluting the history (such as *Merge branch 'master' of github.com:BrewhouseTeam/goodbits*)
+A commit is structured like this:
+
+```
+Short (50 chars or less) summary of changes
+
+More detailed explanatory text, if necessary.
+* Bullet points are okay, too.
+```
+
+You can read more on ["How to Write a Git Commit Message"](http://chris.beams.io/posts/git-commit/)
+
+### Branches
+
+We prefix our branches with one of the four following keywords:
+
+* `feature/` for new features
+* `fix/` for bugs
+* `design/` for UI changes or design spikes (a.k.a prototypes)
+* `tweak/` for other changes such as refactorings, improvements, ...
+
+We turn a `design` branch into a `feature` one when we turn a prototype into a actual feature.
+
+We rebase remote changes to prevent local merges from polluting the history (such as `Merge branch 'master' of github.com:BrewhouseTeam/goodbits`)
 
 Use `git pull --rebase` and add the following to your `~/.gitconfig` to do it automagically on most branches
 
