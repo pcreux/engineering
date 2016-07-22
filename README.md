@@ -35,7 +35,7 @@
 
 ## We write code for our peers
 
-We care about the person who will have to read, debug or extend our code. We want them to have a good time. We take extra time to turn “code that works” into code that’s clean, explicit, simple, robust, confident and tested… obviously!
+We care about the person who will have to read, debug or extend our code. We want them to have a good time. We take extra time to turn "code that works" into code that’s clean, explicit, simple, robust, confident and tested… obviously!
 
 ## We trust our peers
 
@@ -94,7 +94,7 @@ A couple of rules:
 * Any code change should go through a Pull Request.
 * A pull request gives a high level overview of what has been accomplished.
 * A picture is worth a thousand words, so add a screenshot if you’ve added a new feature or changed the UI. An animated GIF is worth a million words, so showcase new UI interactions with one! (LiceCap does the job.)
-* When you are working on something, you can create a “[WIP]” PR: the title is prefixed by [WIP].
+* When you are working on something, you can create a "[WIP]" PR: the title is prefixed by [WIP].
 * Most pull requests should be reviewed and merged by another team member.
 * Even after merging a Pull request the code changes should be tested when it deploys to production.
 
@@ -143,7 +143,7 @@ User::Create
 Most services use the [base service mixin](https://github.com/BrewhouseTeam/brewhouse-rails-template/blob/master/app/services/service.rb).
 They favor raising exceptions on failure over returning `false`.
 
-Whenever we can we decouple services from ActiveRecord to make them more "functional". They take primitives in and return primitives back. That follows the “functional core & imperative shell” approach.
+Whenever we can we decouple services from ActiveRecord to make them more "functional". They take primitives in and return primitives back. That follows the "functional core & imperative shell" approach.
 Your service won't deal with persistence and will be super easy to test!
 
 Example:
@@ -257,7 +257,7 @@ Use `describe` blocks to describe the class, method or behaviour. Ex:
 
 ```ruby
 describe Subscriber::Add
-describe "#disable!”
+describe "#disable!"
 describe "sending via MailChimp"
 describe ".active"
 ```
@@ -318,7 +318,7 @@ In order to prevent a failing task to run subsequent ones, each rake task should
 
 We have a good experience with [jsonapi-resources](https://github.com/cerebris/jsonapi-resources). It provides a good framework to build a consistent api. Pair it with rspec-api-documentation and apitome and you’ve got a pretty good setup that makes your mobile friends happy. :)
 
-Authentication has been done so far using Basic Auth (“Authentication” header with login:password base64 encoded).
+Authentication has been done so far using Basic Auth ("Authentication" header with login:password base64 encoded).
 
 ### Charts
 
