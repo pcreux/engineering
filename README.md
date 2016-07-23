@@ -110,7 +110,17 @@ Use `git pull --rebase` and add the following to your `~/.gitconfig` to do it au
 
 ## Code
 
-Setup your Text Editor to remove trailing whitespaces. This helps making commit diffs clean.
+We setup our Text Editors to remove trailing whitespaces. This helps making commit diffs clean.
+
+We prefer Clear Code over Comments:
+  * we use Good names that reflect the intent of a class or a method
+  * we extract complex code into methods or local variable with meaningful names
+
+We order public methods with Requests first (`available?`, `full_name`, ...) then Commands (`available!`, `publish!`, ...).
+
+We order private methods so that they always call a method that's
+written below them. It makes it easier to find the method and it prevents
+infinite recursions.
 
 ## Pull Requests
 
@@ -146,6 +156,8 @@ We use Cloudflare to get DNS + CDN + free SSL cert.
 We setup pg:backups `heroku pg:backups schedule --at '04:00 UTC'`
 
 ## Ruby on Rails
+
+We follow the [Airbnb Ruby Styleguide](https://github.com/airbnb/ruby).
 
 We bootstrap apps using our rails template: [brewhouse-rails-template](https://github.com/BrewhouseTeam/brewhouse-rails-template).
 
