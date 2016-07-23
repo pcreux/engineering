@@ -128,10 +128,25 @@ A couple of rules:
 
 * Any code change should go through a Pull Request.
 * A pull request gives a high level overview of what has been accomplished.
-* A picture is worth a thousand words, so add a screenshot if you’ve added a new feature or changed the UI. An animated GIF is worth a million words, so showcase new UI interactions with one! (LiceCap does the job.)
-* When you are working on something, you can create a "[WIP]" PR: the title is prefixed by [WIP].
+* A picture is worth a thousand words, so we add a screenshot if we've added a new feature or changed the UI.
+  An animated GIF is worth a million words, so we showcase new UI interactions with one! ([LiceCap](http://licecap.en.softonic.com/) does the job.)
+* We review our own changes before creating a pull request: Is there
+  code that's commented out? Are there tests? ...
+* When we are not done but we want some feedback, we prefix the PR title
+  with "[WIP]"
 * Most pull requests should be reviewed and merged by another team member.
-* Even after merging a Pull request the code changes should be tested when it deploys to production.
+* When we make a change that's risky (new database migrations, new
+  integration with third party service, ...) we (the author) should monitor the
+  deploy to production.
+
+Things to look at when reviewing a Pull Request:
+
+* Is the code clear and robust?
+* Is it well tested?
+* Are the commits well written? Should they be squashed?
+
+We want honest and good enough code to be shipped. We don't want to
+spend to many cycles to make the code Perfect™.
 
 ## CI
 
