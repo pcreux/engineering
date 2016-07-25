@@ -146,7 +146,7 @@ Things to look at when reviewing a Pull Request:
 * Are the commits well written? Should they be squashed?
 
 We want honest and good enough code to be shipped. We don't want to
-spend to many cycles to make the code Perfect™.
+spend too many cycles making the code Perfect™.
 
 ## CI
 
